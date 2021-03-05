@@ -3,6 +3,13 @@ The Burglar Character Generator generates a random Hero’s Journey character us
 
 ------------------
 
+
+
+Update 1.01: 2021-03-05
+
+Updates to hjBurglar, archetype.php, gear.php, spells.php and weapons.php. 
+
+
 Initial commit: 2021-03-04
 
 The initial commit of the Hero's Journey Burglar Character Generator.
