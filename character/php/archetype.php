@@ -108,7 +108,7 @@ function minimumClassScore($score)
 function getSavingThrow($level)
 {
     $levelInt = (int)$level;
-    $save = (16 - $levelInt);
+    $save = (15 - $levelInt);
 
     return $save;
 
@@ -126,73 +126,97 @@ function getXPBonus($abilityScore)
     return $bonus;
 }
 
-function bardSaveMessage()
+function burglarSaveMessage()
 {
-    $message = "<span class='archetypeBold'>Saving Throw:</span> Advantage on saving throws to resist magic spells or the effects of magic items.<br/><br/>";
+    $message = "<span class='archetypeBold'>Saving Throw:</span> Advantage on saving throws made to reduce or avoid traps (both ordinary and magical).<br/><br/>";
 
     return $message;
 }
 
 
-function bardAbilityCharmer($score)
+function thiefCant($score)
+{
+    $message = "";
+
+    if($score >= 9)
+    {
+        $message = "<span class='archetypeBold'>Thief's Cant:</span> The secretive language used between Burglars.<br/><br/>";
+    }
+
+    return $message;
+}
+
+
+function decipherLanguages($score)
 {
     $message = "";
 
     if($score >= 15)
     {
-        $message = "<span class='archetypeBold'>Charmer:</span> The target(s) suffer disadvantage of saving throws when the Bard casts the <span class='archetypeBold'>Breathed in Siver</span> spell.<br/><br/>";
+        $message = "<span class='archetypeBold'>Decipher Languages:</span> Ability to decipher maps, scripts and unknown languages.<br/><br/>";
     }
 
     return $message;
 }
 
-function bardAbilityInspire($score)
+function usePoison($score, $score2)
 {
     $message = "";
 
-    if($score >= 13)
+    if($score >= 13 && $score2 >= 13)
     {
-        $message = "<span class='archetypeBold'>Inspiring Performer:</span> Through the Bard's performance, allies within 60' receive +2 on attacks rolls and saving throws.<br/><br/>";
+        $message = "<span class='archetypeBold'>Poison Use:</span> Use of poisons and advantage to saving throws against poisons.<br/><br/>";
     }
 
     return $message;
 }
 
 
-function bardAbilityThief($score, $level)
+function proficientClimber($score)
 {
     $message = "";
 
-    if($score >= 15 && $level >= 4)
+    if($score >= 15)
     {
-        $message = "<span class='archetypeBold'>Bardic Thievery:</span> Thievery abilities of a Burglar at 3 levels lower than the Bard's level.<br/><br/>";
+        $message = "<span class='archetypeBold'>Proficient Climber:</span> Advantage when Thievery checks are made to climb.<br/><br/>";
     }
 
     return $message;
 }
 
 
-function lineageBardLore($level)
+
+function thiefAcrobat($score)
 {
-    if($level == "1" || $level == "2")
+    $message = "";
+
+    if($score >= 15)
     {
-        $lore = "<span class='archetypeBold'>Lore: 1</span><br/><br/>";
+        $message = "<span class='archetypeBold'>Thief-Acrobat:</span> Able to use the Acrobatics ability of a Swordsman of equal level.<br/><br/>";
     }
-    else if($level == "3" || $level == "4")
+
+    return $message;
+}
+
+
+
+function thievery($level)
+{
+    if($level >= "1" && $level <= "3")
     {
-        $lore = "<span class='archetypeBold'>Lore: 2</span><br/><br/>";
+        $lore = "<span class='archetypeBold'>Thievery: 2</span><br/><br/><span class='archetypeBold'>Backstab</span><br/><br/>";
     }
-    else if($level == "5" || $level == "6")
+    else if($level >= "4" && $level <= "6")
     {
-        $lore = "<span class='archetypeBold'>Lore: 3</span><br/><br/>";
+        $lore = "<span class='archetypeBold'>Thievery: 3</span><br/><br/><span class='archetypeBold'>Backstab</span><br/><br/>";
     }
-    else if($level == "7" || $level == "8")
+    else if($level >= "7" && $level <= "9")
     {
-        $lore = "<span class='archetypeBold'>Lore: 4</span><br/><br/>";
+        $lore = "<span class='archetypeBold'>Thievery: 4</span><br/><br/><span class='archetypeBold'>Backstab</span><br/><br/>";
     }
     else
     {
-        $lore = "<span class='archetypeBold'>Lore: 5</span><br/><br/>";
+        $lore = "<span class='archetypeBold'>Thievery: 5</span><br/><br/><span class='archetypeBold'>Backstab</span><br/><br/>";
     }
 
     return $lore;

@@ -84,7 +84,7 @@
 
         $lineageDefenseBonus = lineageDefenseBonus($lineageNumber);
 
-        $bardLore = lineageBardLore($level);
+        $buglarThievery = thievery($level);
 
 
         $abilityScoreArray = array();
@@ -92,14 +92,10 @@
 
         $might = $abilityScoreArray[0];
         $finesse = $abilityScoreArray[1];
+        $finesse = minimumClassScore($finesse);
         $resolve = $abilityScoreArray[2];
         $insight = $abilityScoreArray[3];
-        
-        $insight = minimumClassScore($insight);
-        
         $bearing = $abilityScoreArray[4];
-        $bearing = minimumClassScore($bearing);
-     
         $weal = $abilityScoreArray[5];
 
         $mightMod = getAbilityScoreModString($might);
@@ -109,11 +105,13 @@
         $bearingMod = getAbilityScoreModString($bearing);
         $wealMod = getAbilityScoreModString($weal);
 
-        $xpBonus = getXPBonus($bearing);
-        $saveMessage = bardSaveMessage();
-        $bardCharmer = bardAbilityCharmer($bearing);
-        $bardPerformer = bardAbilityInspire($finesse);
-        $bardThievery = bardAbilityThief($finesse, $level);
+        $xpBonus = getXPBonus($finesse);
+        $saveMessage = burglarSaveMessage();
+        $thiefCant = thiefCant($insight);
+        $decipherLanguages = decipherLanguages($insight);
+        $usePoisons = usePoison($insight, $finesse);
+        $proficientClimber = proficientClimber($might);
+        $thiefAcrobat = thiefAcrobat($finesse);
 
 
         $xpNextLevel = getXPNextLevel ($level);
@@ -317,7 +315,7 @@
 
     $profession = getProfession($lineageNumber);
 
-    $apprenticeSpellCount = apprenticeSpellsKnown($level, $lineageNumber);
+    $apprenticeSpellCount = halfElfapprenticeSpell($lineageNumber);
 
     $apprenticeSpellKnown = array();
 
@@ -510,15 +508,15 @@
            ?>
         </span>
        
-       
-
         <span id="archetype">
            <?php
-                echo $bardLore;
+                echo $buglarThievery;
                 echo $saveMessage;
-                echo $bardCharmer;
-                echo $bardPerformer;
-                echo $bardThievery;
+                echo $thiefCant;
+                echo $decipherLanguages;
+                echo $usePoisons;
+                echo $proficientClimber;
+                echo $thiefAcrobat;
                 echo $xpBonus;
            ?>
         </span>

@@ -16,27 +16,13 @@ function getApprenticeSpells($spellCount)
     return $spellsKnown;
 }
 
-
-function apprenticeSpellsKnown($level, $lineage)
+function halfElfapprenticeSpell($lineage)
 {
     $spellCount = 0;
 
     if($lineage == '4')
     {
         $spellCount += 1;
-    }
-
-    if($level >= 2 && $level <= 4)
-    {
-        $spellCount += 1;
-    }    
-    else if($level >= 5 && $level <= 7)
-    {
-        $spellCount += 2;
-    }   
-    else if($level >= 8 && $level <= 10)
-    {
-        $spellCount += 3;
     }
 
     return $spellCount;
