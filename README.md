@@ -3,6 +3,18 @@ The Burglar Character Generator generates a random Hero’s Journey character us
 
 ------------------
 
+A live version of the Burglar Character Generator is available at:
+
+https://www.oldschooladventures.org/hero/more/classes/burglar/
+
+
+--------------------
+
+
+Update 1.02: 2021-03-10
+
+A launch page for Burglar Character Generator has been added.
+
 
 
 Update 1.01: 2021-03-05
